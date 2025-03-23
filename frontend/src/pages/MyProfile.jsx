@@ -30,7 +30,9 @@ const MyProfile = () => {
           }
         />
       ) : (
-        <p className="font-medium text-3xl text-neutral-800 mt-4">{userData.name}</p>
+        <p className="font-medium text-3xl text-neutral-800 mt-4">
+          {userData.name}
+        </p>
       )}
       <hr className="bg-zinc-400 h-[1px] border-none" />
       <div>
@@ -128,11 +130,21 @@ const MyProfile = () => {
         </div>
       </div>
       <div className="mt-10 ">
-        {
-          isEdit
-          ? <button className="border border-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-all" onClick={()=>setIsEdit(false)}>Save information</button>
-          :<button className="border border-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-all" onClick={()=>setIsEdit(true)}>Edit</button>
-        }
+        {isEdit ? (
+          <button
+            className="border border-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-all"
+            onClick={() => setIsEdit(false)}
+          >
+            Save information
+          </button>
+        ) : (
+          <button
+            className="border border-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-all"
+            onClick={() => setIsEdit(true)}
+          >
+            Edit
+          </button>
+        )}
       </div>
     </div>
   );
