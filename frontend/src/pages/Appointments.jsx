@@ -9,7 +9,7 @@ const Appointments = () => {
   const {doctors,currencySymbol} = useContext(AppContext)
   const [docInfo, setDocInfo] = useState(null)
   const [docSlots,setDocSlots] = useState([])
-  const [slotindex,setSlotIndex] = useState(0)
+  const [slotIndex,setSlotIndex] = useState(0)
   const [slotTime,setSlotTime] = useState('')
 
   const fetchDocInfo = async () =>{
