@@ -15,3 +15,5 @@ app.use(cors())    // This is for the frontend to connect to the backend
 app.get('/',(req,res)=>{
     res.send('API working')
 })
+
+app.listen(port, ()=> console.log("Server started on that port = ",port))
