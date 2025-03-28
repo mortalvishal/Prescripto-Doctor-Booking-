@@ -18,7 +18,7 @@ app.use(cors())    // This is for the frontend to connect to the backend
 
 // API Endpoints
 app.use('/api/admin',adminRouter)
-// localhost:4000/api/admin
+// localhost:4000/api/admin/add-doctor
 
 app.get('/',(req,res)=>{
     res.send('API working')
