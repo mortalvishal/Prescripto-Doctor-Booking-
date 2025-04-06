@@ -9,7 +9,8 @@ const addDoctor = async (req, res) =>{
         console.log({name, email, password, speciality, degree, experience, about, fees, address},imageFile);
         
     } catch (error) {
-        
+        console.log("Error in addDoctor controller", error.message);
+        return ({ success: false, message:"Error in addDoctor controller"})
     }
 }
 
