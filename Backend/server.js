@@ -19,7 +19,6 @@ app.use(cors())    // This is for the frontend to connect to the backend
 // API Endpoints
 app.use('/api/admin',adminRouter)
 
-
 app.get('/',(req,res)=>{
     res.send('API working')
 })
