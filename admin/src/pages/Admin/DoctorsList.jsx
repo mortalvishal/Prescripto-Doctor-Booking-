@@ -1,21 +1,16 @@
-import React, { useContext, useEffect } from 'react'
-import { AdminContext } from '../../context/AdminContext'
+import React, { useContext, useEffect } from "react";
+import { AdminContext } from "../../context/AdminContext";
 
 function DoctorsList() {
+  const { doctors, aToken, getAllDoctors } = useContext(AdminContext);
 
-  const { doctors, aToken, getAllDoctors } = useContext(AdminContext)
-
-  useEffect(()=>{
+  useEffect(() => {
     if (aToken) {
-      getAllDoctors()
+      getAllDoctors();
     }
-  },[aToken])
-  
-  return (
-    <div>
-      
-    </div>
-  )
+  }, [aToken]);
+
+  return <div></div>;
 }
 
-export default DoctorsList
+export default DoctorsList;
