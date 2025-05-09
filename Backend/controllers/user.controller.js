@@ -1,7 +1,7 @@
 
 
 
-// API to register user
+// API to register user from backend
 const registerUser = async (req, res) => {
   try {
   } 
