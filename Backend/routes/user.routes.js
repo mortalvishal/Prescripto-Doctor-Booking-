@@ -1,17 +1,20 @@
-import express from 'express'
-import { registerUser, loginUser, getProfile } from '../controllers/user.controller.js'
-import authUser from '../middleware/authuser.js'
+import express from "express";
+import {
+  registerUser,
+  loginUser,
+  getProfile,
+  updateProfile,
+} from "../controllers/user.controller.js";
+import authUser from "../middleware/authuser.js";
+import upload from "../middleware/multer.js";
 //import authUser from '../middleware/authUser.js'
 
+const userRouter = express.Router();
 
+userRouter.post("/register", registerUser);
+userRouter.post("/login", loginUser);
 
-const userRouter = express.Router()
-
-userRouter.post('/register', registerUser)
-userRouter.post('/login',loginUser)
-userRouter.get('/get-profile',authUser ,getProfile)
-
-
-
+userRouter.get("/get-profile", authUser, getProfile);
+userRouter.post("/update-profile",upload.single("image"),authUser,updateProfile);
 
 export default userRouter;
