@@ -167,7 +167,7 @@ const MyProfile = () => {
         {isEdit ? (
           <button
             className="border border-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-all"
-            onClick={() => updateUserProfileData}
+            onClick={updateUserProfileData}
           >
             Save information
           </button>
