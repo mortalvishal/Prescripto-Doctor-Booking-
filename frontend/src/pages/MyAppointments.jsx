@@ -1,8 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const MyAppointments = () => {
-  const { doctors } = useContext(AppContext);
+  const { backendUrl, token } = useContext(AppContext);
+
+  const [appointments, setAppointments] = useState([])
+
+  const getUserAppointments = async () => {
+    try {
+      
+      const { data } = await axios.get(backendUrl + "/api/user/appointments", { headers: { token }})
+      if (data.success) {
+        setAppointments(data.appointments.reverse())
+      }
+
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message)
+    }
+  }
 
   return (
     <div>
@@ -10,7 +28,7 @@ const MyAppointments = () => {
         My Appointments
       </p>
       <div>
-        {doctors.slice(0, 3).map((item, index) => (
+        {appointments.map((item, index) => (
           <div
             className="grid grid-cols-[1fr_2fr] gap-4 sm:flex sm:gap-6 py-2 border-b"
             key={index}
