@@ -64,7 +64,7 @@ const AppContextProvider = (props) => {
     } else {
       setUserData(false);
     }
-  }, [token]);
+  },[token]);
 
   return (
     <AppContext.Provider value={value}>{props.children}</AppContext.Provider>
