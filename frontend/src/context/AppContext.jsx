@@ -57,7 +57,7 @@ const AppContextProvider = (props) => {
 
   useEffect(() => {
     getDoctorsData();
-  }, []);
+  },[]);
 
   useEffect(() => {
     if (token) {
