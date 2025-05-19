@@ -240,12 +240,14 @@ const paymentRazorpay = async (req, res) => {
     // Validate the currency environment variable
     const currency = process.env.CURRENCY;
     if (!currency || currency.length !== 3) {
-      throw new Error("Invalid currency code. It must be a 3-letter ISO code like 'INR', 'USD', 'EUR'.");
+      throw new Error(
+        "Invalid currency code. It must be a 3-letter ISO code like 'INR', 'USD', 'EUR'."
+      );
     }
 
     // Creating options for razorpay payment
     const options = {
-      amount: appointmentData.amount *100,
+      amount: appointmentData.amount * 100,
       currency: currency.toUpperCase(),
       receipt: appointmentId,
     };
@@ -253,6 +255,22 @@ const paymentRazorpay = async (req, res) => {
     // Creation of an order
     const order = await razorpayInstance.orders.create(options);
     res.json({ success: true, order });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+// API to verify payment of Razorpay
+const verifyRazorpay = async (req, res) => {
+  try {
+
+    const { razorpay_order_id } = req.body
+    const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id)
+
+    console.log(orderInfo);
+    
+
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
@@ -268,4 +286,5 @@ export {
   listAppointment,
   cancelAppointment,
   paymentRazorpay,
+  verifyRazorpay,
 };
