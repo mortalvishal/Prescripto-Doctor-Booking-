@@ -237,16 +237,21 @@ const paymentRazorpay = async (req, res) => {
       });
     }
 
+    // Validate the currency environment variable
+    const currency = process.env.CURRENCY;
+    if (!currency || currency.length !== 3) {
+      throw new Error("Invalid currency code. It must be a 3-letter ISO code like 'INR', 'USD', 'EUR'.");
+    }
+
     // Creating options for razorpay payment
     const options = {
-      amount: appointmentData.amount * 100,
-      Currency: process.env.CURRENCY,
+      amount: appointmentData.amount *100,
+      currency: currency.toUpperCase(),
       receipt: appointmentId,
     };
 
     // Creation of an order
     const order = await razorpayInstance.orders.create(options);
-
     res.json({ success: true, order });
   } catch (error) {
     console.log(error);
