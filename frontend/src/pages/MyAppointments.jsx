@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const MyAppointments = () => {
   const { backendUrl, token, getDoctorsData } = useContext(AppContext);
@@ -22,6 +23,8 @@ const MyAppointments = () => {
     "Nov",
     "Dec",
   ];
+
+  const navigate = useNavigate();
 
   const slotDateFormat = (slotDate) => {
     const dateArray = slotDate.split("/");
@@ -76,6 +79,20 @@ const MyAppointments = () => {
       receipt: order.receipt,
       handler: async (response) => {
         console.log(response);
+        try {
+          const { data } = await axios.post(
+            backendUrl + "/api/user/verifyRazorpay",
+            response,
+            { headers: { token } }
+          );
+          if (data.success) {
+            getUserAppointments();
+            navigate("/my-appointments");
+          }
+        } catch (error) {
+          console.log(error);
+          toast.error(error.message);
+        }
       },
     };
 
