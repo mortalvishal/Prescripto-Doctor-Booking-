@@ -24,8 +24,6 @@ const MyAppointments = () => {
     "Dec",
   ];
 
-  const navigate = useNavigate();
-
   const slotDateFormat = (slotDate) => {
     const dateArray = slotDate.split("/");
     return (
@@ -33,6 +31,8 @@ const MyAppointments = () => {
     );
   };
 
+  const navigate = useNavigate();
+  
   const getUserAppointments = async () => {
     try {
       const { data } = await axios.get(backendUrl + "/api/user/appointments", {
