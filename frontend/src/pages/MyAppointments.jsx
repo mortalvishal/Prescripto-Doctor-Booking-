@@ -108,9 +108,15 @@ const MyAppointments = () => {
         { headers: { token } }
       );
       if (data.success) {
-        initPay(data.order);
+        //initPay(data.order);
+        initPay({ ...data.order, appointmentId });
+      } else {
+        toast.error(data.message);
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.response?.data?.message || error.message);
+    }
   };
 
   useEffect(() => {
@@ -143,8 +149,8 @@ const MyAppointments = () => {
               </p>
               <p>{item.docData.speciality}</p>
               <p className="text-zinc-700 font-medium mt-1">Address:</p>
-              <p className="text-xs">{item.docData.address.line1}</p>
-              <p className="text-xs">{item.docData.address.line2}</p>
+              <p className="text-xs">{item.docData.address?.line1}</p>
+              <p className="text-xs">{item.docData.address?.line2}</p>
               <p className="text-sm mt-1">
                 {" "}
                 <span className="text-sm text-neutral-700 font-medium">
