@@ -94,22 +94,22 @@ const Login = () => {
         {state === "Sign Up" ? (
           <p>
             Already have an account?{" "}
-            <spna
+            <span
               onClick={() => setState("Login")}
               className="text-primary underline cursor-pointer"
             >
               Login here
-            </spna>{" "}
+            </span>{" "}
           </p>
         ) : (
           <p>
             Create an new account?{" "}
-            <spna
+            <span
               onClick={() => setState("Sign Up")}
               className="text-primary underline cursor-pointer"
             >
               Click here
-            </spna>{" "}
+            </span>{" "}
           </p>
         )}
       </div>
