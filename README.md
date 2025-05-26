@@ -1,4 +1,4 @@
-# 🩺 Prescripto - Online Doctor Appointment Booking App 
+# 🩺 Prescripto - Online Doctor Appointment Booking App
 
 > Prescripto is a full-stack web application built using the MERN stack (MongoDB, Express.js, React.js, and Node.js) that allows users to book appointments with doctors online. It provides a seamless platform for patients to consult with healthcare professionals based on their availability and specialization.
 
@@ -10,7 +10,8 @@
 
 ---
 
-## 🔥 Features  
+## 🔥 Features
+
 - 🔑 **User Authentication** (JWT-based login & signup)
 - 🛍️ **Product Management** (Add, edit, delete products)
 - 💳 **Payment Integration** (Stripe for secure payments)
@@ -21,19 +22,24 @@
 ---
 
 ## 📂 Folder Structure
+
 # Install backend dependencies
+
 - cd backend
 - npm install
 
 # Install frontend dependencies
+
 - cd ../frontend
 - npm install
 
 # Install admin panel dependencies
+
 - cd ../admin
 - npm install
 
 # For the .env file
+
 - PORT = Your backend port
 - MONGODB_URI = Your MongoDB URI
 - CLOUDINARY_API_KEY = Your Cloudinary URI
@@ -46,14 +52,16 @@
 - RAZORPAY_KEY_ID = Your Razorpay key id
 
 # Start backend server
+
 - cd backend
 - npm run server
 
 # Start frontend
+
 - cd ../frontend
 - npm run dev
 
 # Start admin panel
+
 - cd ../admin
 - npm run dev
-
