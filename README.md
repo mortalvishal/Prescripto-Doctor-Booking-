@@ -6,7 +6,7 @@
 
 ## 🔗 Live Demo
 
-🚀 [Visit Prescripto Live](https://your-live-link.com) || Not Available at that time
+🚀 [Visit Prescripto Live](https://your-live-link.com) || Currently Not Available at that time
 
 ---
 
